@@ -2,7 +2,7 @@
 An Android app showcasing our points of interest with a theme of books and coffee around Halifax using Mapbox and a local Room database.
 
 ## Team Members & Roles
-* **Yasaman** - Repository Owner
+* **Yasaman** - Repository Owner and Project Lead
 * **[Teammate 1]** - Developer
 * **[Teammate 2]** - Data Lead
 * **[Teammate 3]** - Design Lead
