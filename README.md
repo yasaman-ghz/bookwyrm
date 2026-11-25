@@ -6,7 +6,7 @@ An Android app showcasing our points of interest with a theme of books and coffe
 * **[Teammate 1]** - Developer
 * **[Teammate 2]** - Data Lead
 * **[Teammate 3]** - Design Lead
-* **[Teammate 4]** - Developer
+* **Max** - Developer
 
 ## Git & Branching Strategy
 * **`main` branch:** Always contains working, tested code. Never push directly to `main`.
