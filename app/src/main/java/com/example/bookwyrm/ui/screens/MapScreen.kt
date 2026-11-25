@@ -1,4 +1,4 @@
-package com.example.bookwyrm
+package com.example.bookwyrm.ui.screens
 
 import android.Manifest
 import androidx.activity.compose.rememberLauncherForActivityResult
