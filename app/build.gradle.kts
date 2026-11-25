@@ -62,6 +62,7 @@ dependencies {
 
     //Mapbox
     implementation("com.mapbox.maps:android-ndk27:11.35.2")
+    implementation("com.mapbox.extension:maps-compose-ndk27:11.35.2")
 
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
