@@ -24,14 +24,6 @@ fun MapScreen(modifier: Modifier = Modifier) {
         ActivityResultContracts.RequestMultiplePermissions()
     ) { results -> granted = results.values.any { it } }
 
-    LaunchedEffect(Unit) {
-        launcher.launch(
-            arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            )
-        )
-    }
 
     val viewport = rememberMapViewportState()
 
