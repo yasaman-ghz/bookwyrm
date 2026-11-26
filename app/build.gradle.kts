@@ -48,6 +48,7 @@ dependencies {
 
     // Navigation
     implementation(libs.androidx.navigation.compose)
+    implementation("androidx.compose.material:material-icons-extended")
 
     // Icons (for the nav menu buttons)
     implementation(libs.androidx.compose.material.icons.core)
