@@ -11,9 +11,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.mapbox.geojson.Point
 import com.mapbox.maps.extension.compose.MapEffect
 import com.mapbox.maps.extension.compose.MapboxMap
 import com.mapbox.maps.extension.compose.animation.viewport.rememberMapViewportState
+import com.mapbox.maps.extension.compose.annotation.Marker
 import com.mapbox.maps.plugin.locationcomponent.location
 
 @Composable
@@ -32,5 +34,10 @@ fun MapScreen(modifier: Modifier = Modifier, granted: Boolean) {
                 viewport.transitionToFollowPuckState()
             }
         }
+
+        Marker(
+            point = Point.fromLngLat(-63.6875859018569, 44.7684185607905),
+            text = "Cape and Cowl Comics and Collectibles"
+        )
     }
 }
