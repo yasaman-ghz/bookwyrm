@@ -53,7 +53,7 @@ dependencies {
     // Icons (for the nav menu buttons)
     implementation(libs.androidx.compose.material.icons.core)
     implementation(libs.androidx.compose.material.icons.extended)
-
+    implementation("androidx.core:core-splashscreen:1.0.1")
     // Coil (use v3.4.0 for Kotlin compatibility)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
