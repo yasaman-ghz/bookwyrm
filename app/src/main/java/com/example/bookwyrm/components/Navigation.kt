@@ -19,11 +19,14 @@ import com.example.bookwyrm.ui.screens.MapScreen
 @Composable
 fun Navigation() {
 
+    var granted by remember { mutableStateOf(false) }
+
     // Request location permissions
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions()
-    ) { permissions ->
-        // Location permission results are received here
+    ) {permissions ->
+        granted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
+                permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
     }
 
     LaunchedEffect(Unit) {
@@ -34,6 +37,7 @@ fun Navigation() {
             )
         )
     }
+
 
     // Tracks which screen is currently displayed
     var showMap by remember {
@@ -103,7 +107,7 @@ fun Navigation() {
             if (showMap) {
 
                 // Display MapScreen when the Map icon is selected
-                MapScreen()
+                MapScreen(Modifier, granted)
 
             } else {
 

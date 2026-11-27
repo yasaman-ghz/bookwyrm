@@ -17,12 +17,7 @@ import com.mapbox.maps.extension.compose.animation.viewport.rememberMapViewportS
 import com.mapbox.maps.plugin.locationcomponent.location
 
 @Composable
-fun MapScreen(modifier: Modifier = Modifier) {
-    var granted by remember { mutableStateOf(false) }
-
-    val launcher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
-    ) { results -> granted = results.values.any { it } }
+fun MapScreen(modifier: Modifier = Modifier, granted: Boolean) {
 
 
     val viewport = rememberMapViewportState()
