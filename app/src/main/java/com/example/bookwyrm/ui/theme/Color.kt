@@ -2,10 +2,10 @@ package com.example.bookwyrm.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val WarmTan = Color(0xFFB59672)
+val EspressoBrown = Color(0xFF4A3B2C)
+val CharcoalGrey = Color(0xFF3A3A3A)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val SoftGrey = Color(0xFFEAE8E5)
+val WarmOffWhite = Color(0xFFFAF9F7)
+val MutedSage = Color(0xFF7D8C7A)
