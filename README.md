@@ -5,7 +5,7 @@ An Android app showcasing our points of interest with a theme of books and coffe
 * **Yasaman** - Repository Owner and Project Lead
 * **Francis** - Developer
 * **Brendan Henshaw** - Data Lead
-* **[Teammate 3]** - Design Lead
+* **Abigail** - Design Lead
 * **Max** - Developer
 
 ## Git & Branching Strategy
