@@ -46,15 +46,20 @@ import com.example.bookwyrm.ui.screens.MapScreen
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.filled.Map
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.bookwyrm.ui.theme.CharcoalGrey
 import com.example.bookwyrm.ui.theme.EspressoBrown
 import com.example.bookwyrm.ui.theme.MutedSage
 import com.example.bookwyrm.ui.theme.WarmTan
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Navigation() {
+fun Navigation(mainViewModel: MainViewModel = viewModel()) {
+
+    val context = LocalContext.current
+    val userLocation by mainViewModel.userLocation.collectAsState()
 
     var granted by remember { mutableStateOf(false) }
 
@@ -64,6 +69,10 @@ fun Navigation() {
     ) { permissions ->
         granted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
                 permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
+
+        if (granted) {  // if granted, fetches device location into the MainViewModel
+            mainViewModel.fetchDeviceLocation(context)
+        }
     }
 
     LaunchedEffect(Unit) {
@@ -194,7 +203,8 @@ fun Navigation() {
                     ) {
                         MapScreen(
                             modifier = Modifier.fillMaxSize(),
-                            granted = granted
+                            granted = granted,
+                            userLocation = userLocation  // passing into the map screen
                         )
                     }
 
@@ -221,7 +231,7 @@ fun Navigation() {
                         }
                     }
 
-                    // Card placeholders for the reccos (none yet)
+                    // Card placeholders
                     val recommendations = listOf(
                         "Spot 1",
                         "Spot 2",
