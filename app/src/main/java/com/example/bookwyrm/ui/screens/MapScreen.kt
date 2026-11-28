@@ -17,6 +17,7 @@ import com.mapbox.maps.extension.compose.MapboxMap
 import com.mapbox.maps.extension.compose.animation.viewport.rememberMapViewportState
 import com.mapbox.maps.extension.compose.annotation.Marker
 import com.mapbox.maps.plugin.locationcomponent.location
+import com.mapbox.maps.plugin.viewport.data.FollowPuckViewportStateOptions
 
 @Composable
 fun MapScreen(modifier: Modifier = Modifier, granted: Boolean) {
@@ -31,7 +32,11 @@ fun MapScreen(modifier: Modifier = Modifier, granted: Boolean) {
         MapEffect(granted) { mapView ->
             if (granted) {
                 mapView.location.updateSettings { enabled = true }
-                viewport.transitionToFollowPuckState()
+                viewport.transitionToFollowPuckState(
+                    followPuckViewportStateOptions = FollowPuckViewportStateOptions.Builder()
+                        .zoom(12.0) // Lower = more zoomed out
+                        .build()
+                )
             }
         }
 

@@ -13,6 +13,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -167,7 +170,7 @@ fun Navigation() {
                 else -> Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .verticalScroll(rememberScrollState())
+                        //.verticalScroll(rememberScrollState())  // This part doesn't let the map be easily scrollable
                         .padding(horizontal = 16.dp, vertical = 14.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
@@ -186,9 +189,8 @@ fun Navigation() {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(400.dp)
+                            .weight(1f)
                             .clip(RoundedCornerShape(8.dp))
-                            .background(CharcoalGrey)
                     ) {
                         MapScreen(
                             modifier = Modifier.fillMaxSize(),
@@ -211,7 +213,7 @@ fun Navigation() {
                                 .padding(horizontal = 10.dp, vertical = 4.dp)
                         ) {
                             Text(
-                                text = "This week's recommendations",
+                                text = "See our recommended spots below!",
                                 style = MaterialTheme.typography.labelMedium,
                                 fontWeight = FontWeight.Medium,
                                 color = Color.White
@@ -220,24 +222,36 @@ fun Navigation() {
                     }
 
                     // Card placeholders for the reccos (none yet)
-                    Row(
+                    val recommendations = listOf(
+                        "Spot 1",
+                        "Spot 2",
+                        "Spot 3",
+                        "Spot 4",
+                        "Spot 5"
+                    )
+
+                    LazyRow(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .height(110.dp)
-                                .clip(RoundedCornerShape(8.dp))
-                                .background(MutedSage)
-                        )
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .height(110.dp)
-                                .clip(RoundedCornerShape(8.dp))
-                                .background(MutedSage)
-                        )
+                        items(recommendations) { spotName ->
+                            Box(
+                                modifier = Modifier
+                                    .width(170.dp)
+                                    .height(110.dp)
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .background(MutedSage)
+                                    .padding(12.dp),
+                                contentAlignment = Alignment.BottomStart
+                            ) {
+                                Text(
+                                    text = spotName,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White
+                                )
+                            }
+                        }
                     }
                 }
             }
